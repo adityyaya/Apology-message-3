@@ -9,6 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     background: url('https://www.transparenttextures.com/patterns/heart-pattern.png'), linear-gradient(45deg, #ffe6e6, #f4f4f9);
+    background-size: cover;
     animation: backgroundAnimation 10s infinite alternate;
 }
 
@@ -18,7 +19,6 @@ body {
     padding: 50px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: containerEntrance 1s ease-in-out;
     max-width: 800px;
     margin: 20px;
 }
@@ -43,11 +43,11 @@ h1 {
 
 /* Animations */
 .fade-in {
-    animation: fadeIn 2s ease-in;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .slide-in {
-    animation: slideIn 2s ease-out;
+    animation: slideIn 2s ease-in-out;
 }
 
 .zoom-in {
@@ -60,21 +60,16 @@ h1 {
 }
 
 @keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.5); }
-    to { transform: scale(1); }
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 @keyframes backgroundAnimation {
     0% { background-position: 0 0; }
     100% { background-position: 100% 100%; }
-}
-
-@keyframes containerEntrance {
-    0% { transform: translateY(-50px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
 }
